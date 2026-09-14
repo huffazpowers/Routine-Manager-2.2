@@ -1,233 +1,232 @@
-HTML
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Routine & GitHub Manager</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine & GitHub Manager</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background-color: #f4f7f6;
-      display: flex;
-      justify-content: center;
-      padding: 30px 15px;
-    }
+        body {
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px;
+        }
 
-    .container {
-      background: white;
-      width: 100%;
-      max-width: 480px;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 480px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    .github-settings {
-      background: #eef2f5;
-      padding: 12px;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
+        .github-settings {
+            background: #eef2f5;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
 
-    .github-settings h4 {
-      margin-bottom: 8px;
-      color: #24292e;
-    }
+        .github-settings h4 {
+            margin-bottom: 8px;
+            color: #24292e;
+        }
 
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
-    input[type="text"], input[type="time"], input[type="password"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      outline: none;
-    }
+        input[type="text"], input[type="time"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
 
-    .btn-main {
-      padding: 12px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+        .btn-main {
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    .btn-main:hover {
-      background-color: #218838;
-    }
+        .btn-main:hover {
+            background-color: #218838;
+        }
 
-    ul {
-      list-style: none;
-    }
+        ul {
+            list-style: none;
+        }
 
-    li {
-      background: #f9f9f9;
-      padding: 12px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-left: 4px solid #24292e;
-    }
+        li {
+            background: #f9f9f9;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 4px solid #24292e;
+        }
 
-    li.completed {
-      border-left-color: #6c757d;
-      opacity: 0.6;
-    }
+        li.completed {
+            border-left-color: #6c757d;
+            opacity: 0.6;
+        }
 
-    li.completed .task-text {
-      text-decoration: line-through;
-    }
+        li.completed .task-text {
+            text-decoration: line-through;
+        }
 
-    .task-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-grow: 1;
-    }
+        .task-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+        }
 
-    .time-badge {
-      font-size: 12px;
-      background: #e9ecef;
-      padding: 4px 8px;
-      border-radius: 4px;
-      color: #495057;
-    }
+        .time-badge {
+            font-size: 12px;
+            background: #e9ecef;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #495057;
+        }
 
-    .delete-btn {
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-  </style>
+        .delete-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Routine Manager + GitHub</h2>
-    
-    <!-- GitHub Config Input -->
-    <div class="github-settings">
-      <h4>GitHub Settings (Optional)</h4>
-      <div class="input-group" style="margin-bottom:0;">
-        <input type="text" id="repoInput" placeholder="Username/Repository (e.g. user/my-repo)">
-        <input type="password" id="tokenInput" placeholder="GitHub Personal Access Token">
-      </div>
+    <div class="container">
+        <h2>Routine Manager + GitHub</h2>
+
+        <!-- GitHub Config Input -->
+        <div class="github-settings">
+            <h4>GitHub Settings (Optional)</h4>
+            <div class="input-group" style="margin-bottom:0;">
+                <input type="text" id="repoInput" placeholder="Username/Repository (e.g. user/my-repo)">
+                <input type="password" id="tokenInput" placeholder="GitHub Personal Access Token">
+            </div>
+        </div>
+
+        <!-- Task Input -->
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Enter new task...">
+            <input type="time" id="timeInput">
+            <button class="btn-main" onclick="addTask()">Add Task</button>
+        </div>
+
+        <ul id="taskList"></ul>
     </div>
 
-    <!-- Task Input -->
-    <div class="input-group">
-      <input type="text" id="taskInput" placeholder="Naya task likhein...">
-      <input type="time" id="timeInput">
-      <button class="btn-main" onclick="addTask()">Task Add Karein</button>
-    </div>
+    <script>
+        async function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const timeInput = document.getElementById('timeInput');
+            const repoInput = document.getElementById('repoInput').value.trim();
+            const tokenInput = document.getElementById('tokenInput').value.trim();
 
-    <ul id="taskList"></ul>
-  </div>
+            const taskText = taskInput.value.trim();
+            const taskTime = timeInput.value;
 
-  <script>
-    async function addTask() {
-      const taskInput = document.getElementById('taskInput');
-      const timeInput = document.getElementById('timeInput');
-      const repoInput = document.getElementById('repoInput').value.trim();
-      const tokenInput = document.getElementById('tokenInput').value.trim();
+            if (taskText === '') {
+                alert('Please enter a task name!');
+                return;
+            }
 
-      const taskText = taskInput.value.trim();
-      const taskTime = timeInput.value;
+            // 1. Create GitHub Issue (If Details Provided)
+            if (repoInput && tokenInput) {
+                try {
+                    await fetch(`https://api.github.com/repos/${repoInput}/issues`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `token ${tokenInput}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            title: taskText,
+                            body: `Scheduled Time: ${taskTime || 'Not set'}`
+                        })
+                    });
+                    console.log('GitHub Issue created!');
+                } catch (error) {
+                    console.error('GitHub Sync Error:', error);
+                }
+            }
 
-      if (taskText === '') {
-        alert('Lihaza task ka naam darj karein!');
-        return;
-      }
+            // 2. Render on Local Screen
+            const taskList = document.getElementById('taskList');
+            const li = document.createElement('li');
 
-      // 1. GitHub par Issue create karna (Agar Details Maujood Hain)
-      if (repoInput && tokenInput) {
-        try {
-          await fetch(`https://api.github.com/repos/${repoInput}/issues`, {
-            method: 'POST',
-            headers: {
-              'Authorization': `token ${tokenInput}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              title: taskText,
-              body: `Scheduled Time: ${taskTime || 'Not set'}`
-            })
-          });
-          console.log('GitHub Issue created!');
-        } catch (error) {
-          console.error('GitHub Sync Error:', error);
+            const taskInfo = document.createElement('div');
+            taskInfo.className = 'task-info';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.onclick = function() {
+                li.classList.toggle('completed');
+            };
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'task-text';
+            textSpan.textContent = taskText;
+
+            taskInfo.appendChild(checkbox);
+            taskInfo.appendChild(textSpan);
+
+            if (taskTime) {
+                const timeSpan = document.createElement('span');
+                timeSpan.className = 'time-badge';
+                timeSpan.textContent = taskTime;
+                taskInfo.appendChild(timeSpan);
+            }
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.onclick = function() {
+                taskList.removeChild(li);
+            };
+
+            li.appendChild(taskInfo);
+            li.appendChild(deleteBtn);
+            taskList.appendChild(li);
+
+            taskInput.value = '';
+            timeInput.value = '';
         }
-      }
-
-      // 2. Local Screen Par Render Karna
-      const taskList = document.getElementById('taskList');
-      const li = document.createElement('li');
-
-      const taskInfo = document.createElement('div');
-      taskInfo.className = 'task-info';
-
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.onclick = function() {
-        li.classList.toggle('completed');
-      };
-
-      const textSpan = document.createElement('span');
-      textSpan.className = 'task-text';
-      textSpan.textContent = taskText;
-
-      taskInfo.appendChild(checkbox);
-      taskInfo.appendChild(textSpan);
-
-      if (taskTime) {
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'time-badge';
-        timeSpan.textContent = taskTime;
-        taskInfo.appendChild(timeSpan);
-      }
-
-      const deleteBtn = document.createElement('button');
-      deleteBtn.className = 'delete-btn';
-      deleteBtn.textContent = 'Khatam Karein';
-      deleteBtn.onclick = function() {
-        taskList.removeChild(li);
-      };
-
-      li.appendChild(taskInfo);
-      li.appendChild(deleteBtn);
-      taskList.appendChild(li);
-
-      taskInput.value = '';
-      timeInput.value = '';
-    }
-  </script>
+    </script>
 
 </body>
 </html>
